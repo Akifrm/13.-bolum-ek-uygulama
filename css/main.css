@@ -1,33 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@font-face {
+    font-family: GothamBook;
+    src: url(https://storage.acerapps.io/app-1264/fonts/Gotham-Book.otf)
+}
+
+@font-face {
+    src: url(https://storage.acerapps.io/app-1264/fonts/Dubai-Regular.ttf);
+    font-family: "Dubai"
+}
+
 div.icons {
     width: 35px;
     height: 35px;
     background-color: #2b43a2;
-    border-radius: 50%;
     opacity: .7;
-    margin: 0 0.5rem;
+    transition: opacity .4s;
 }
 
-.icons-div {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
+div.icons:hover {
+    opacity: 1 !important;
 }
 
-.language {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.language a {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+    font-size: 12px;
 }
 
 .language a div {
-    display: flex;
     width: 2.75rem;
     height: 1.75rem;
-    align-items: center;
-    justify-content: center;
 }
 
 .language a:first-child div {
@@ -40,6 +42,7 @@ div.icons {
     border: 1px solid #2b43a2;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+
 }
 
 .language a div.active {
@@ -47,6 +50,144 @@ div.icons {
     color: white;
 }
 
-.language a {
+.header-cizgi {
+    background-color: #2b43a2;
+    height: 2px;
+}
+
+.row {
+    width: 100%;
+}
+
+.color-white {
+    fill: white;
+}
+
+.menu ul {
+    list-style-type: none;
+}
+
+.menu ul li {
+    padding: 1.16rem;
+}
+
+.menu ul li a {
     text-decoration: none;
+    font-family: GothamBook;
+    font-size: 14px;
+}
+
+.header-link-bottom-line {
+    width: 0;
+    visibility: hidden;
+    border: 1px solid #2b43a2;
+    height: 2px;
+    background-color: #2b43a2;
+    opacity: .7;
+    transition: opacity .4s, width .4s, visibility .4s;
+}
+
+.menu ul li a:hover .header-link-bottom-line {
+    opacity: 1;
+    width: 100%;
+    visibility: visible;
+}
+
+.banner-title {
+    color: #243a94;
+    font-size: 75px;
+    font-weight: 100;
+}
+
+.banner-paragraph {
+    color: #243a94;
+    font-size: 20px;
+    font-weight: 300;
+    max-width: 36rem;
+    width: 100%;
+    margin: auto;
+    transition: margin .6s, max-width .6s;
+}
+
+.big-img {
+    width: 550px;
+    height: 550px;
+}
+
+.active-slider {
+    transform: rotateY(180deg);
+    transition: transform .6s;
+}
+
+.active-slider2 {
+    transform: rotateY(0deg);
+    transition: transform .6s;
+}
+
+.active-big-img {
+    right: 73% !important;
+    transition: right .6s;
+}
+
+.active-big-img2 {
+    right: -4% !important;
+    transition: right .6s;
+}
+
+.buttons {
+    position: absolute;
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+}
+
+.buttons li a {
+    display: block;
+    width: 17px;
+    height: 17px;
+    background-color: rgb(36,58,148,.6);
+    border: 3px solid rgb(36,58,148,1);
+    border-radius: 50%;
+    margin: 0 .2rem;
+}
+
+.buttons li a.active {
+    background-color: rgb(36,58,148,1);
+}
+
+.button {
+    cursor: pointer;
+    transition: background-color .3s;
+}
+
+@media only screen and (min-width: 1265px) and (max-width:1400px) {
+    .banner-paragraph {
+        margin: 0 0 0 auto;
+        max-width: 38rem;
+    }
+}
+
+@media only screen and (min-width: 1200px) and (max-width:1265px) {
+    .banner-paragraph {
+        margin-left: auto;
+        max-width: 36rem
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width:1200px) {
+    .banner-paragraph {
+        margin-left: auto;
+        max-width: 35rem
+    }
+}
+
+.banner-body {
+    transform: translateX(4rem);
+    transition: transform .6s;
+}
+
+@media (max-width: 575.98px) {
+    .w-sm-100 {
+        width: 100% !important;
+    }
 }

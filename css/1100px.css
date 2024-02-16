@@ -1,0 +1,17 @@
+.big-img {
+    width: 400px;
+    height: 400px;
+}
+
+.banner-title {
+    font-size: 50px;
+}
+
+.banner-paragraph {
+    font-size: 19px;
+}
+
+.text-move {
+    transform: translateX(18rem) !important;
+    transition: transform .6s;
+}

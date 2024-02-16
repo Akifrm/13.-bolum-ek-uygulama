@@ -2,3 +2,12 @@
     width: 500px;
     height: 500px;
 }
+
+.banner-title {
+    font-size: 65px;
+}
+
+.text-move {
+    transform: translateX(21.5rem) !important;
+    transition: transform .6s;
+}

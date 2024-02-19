@@ -91,6 +91,43 @@ div.icons:hover {
     transition: opacity .4s, width .4s, visibility .4s;
 }
 
+header .header-menu-button {
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+    height: 2rem;
+}
+
+header .header-menu-button span {
+    display: block;
+    width: 2.5rem;
+    height: 3px;
+    background-color: black;
+    margin-top: .35rem;
+    transition: transform .4s, opacity .4s, margin .4s;
+    opacity: 1;
+}
+
+header .header-menu-button.header-menu-button-animation span {
+    transform: rotate(45deg);
+    margin-top: -2.5px;
+}
+
+header .header-menu-button.header-menu-button-animation span:first-child {
+    transform: rotate(-45deg);
+    margin-top: 11.5px;
+}
+
+header .header-menu-button.header-menu-button-animation span:last-child {
+    opacity: 0;
+}
+
+header .header-menu-button {
+    display: none !important;
+}
+
 .menu ul li a:hover .header-link-bottom-line {
     opacity: 1;
     width: 100%;
@@ -316,26 +353,26 @@ div.icons:hover {
     padding: 30px 0 0 0 !important;
 }
 
-.slick-slide {
+.slick-card .slick-slide {
     transition: all .4s ease-in-out;
     transform: scale(1);
 }
 
-.slick-slide.slick-center {
+.slick-card .slick-slide.slick-center {
     transform: scale(1.1);
 }
 
 
-.slick-slide.slick-center .card-content {
+.slick-card .slick-slide.slick-center .card-content {
     transition: all .4s ease-in-out;
 }
 
-.slick-slide.slick-center .floor {
+.slick-card .slick-slide.slick-center .floor {
     transition: all .4s ease-in-out;
     top: -50px;
 }
 
-.slick-slide.slick-center .card-main .card-content p {
+.slick-card .slick-slide.slick-center .card-main .card-content p {
     -webkit-line-clamp: 8;
 }
 
@@ -427,7 +464,7 @@ div.icons:hover {
     border-radius: 120px 0;
 }
 
-.section-5-card:hover .section-5-card-cirle {
+.section-5-card:hover .section-5-card-circle {
     opacity: 1;
 }
 
@@ -444,10 +481,6 @@ div.icons:hover {
     opacity: 1;
 }
 
-.section-5-card hr {
-    width: 232px;
-}
-
 .section-5-card-title {
     transition: height .4s;
     font-weight: bold;
@@ -460,10 +493,10 @@ div.icons:hover {
     transition: all .4s;
 }
 
-.section-5-card-cirle {
+.section-5-card-circle {
     position: absolute;
     top: -120px;
-    width: 370px;
+    width: 125%;
     height: 425px;
     left: 50%;
     transform: translateX(-50%);
@@ -475,23 +508,264 @@ div.icons:hover {
 }
 
 .section-5-card-paragraph {
-    width: 232px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    padding-right: 1.5rem;
     opacity: 0;
     transition: opacity .4s;
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
-    -webkit-line-clamp: 13;
+    -webkit-line-clamp: 11;
+    -webkit-box-orient: vertical;
     overflow-wrap: break-word;
 }
 
 .section-5-card-date {
-    width: 232px;
+    width: 100%;
     font-size: 14px;
     font-weight: 500;
+}
+
+.erasmus-cards {
+    margin-bottom: 3rem;
+}
+
+.erasmus-cards .slick-slide {
+    background-color: white;
+    border-radius: 4rem;
+    margin: 0 1rem;
+    padding: 3rem;
+    box-shadow: 0 0 20px rgb(0, 0, 0, .05);
+    transform: scale(1);
+    transition: all .4s ease-in-out;
+    height: 35rem;
+}
+
+.erasmus-card {
+    transition: opacity .4s;
+}
+
+.erasmus-card .erasmus-card-img {
+    transition: opacity .4s;
+    opacity: 0;
+    z-index: -2;
+    border-radius: 4rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.erasmus-card .erasmus-card-date {
+    color: #93eb74;
+}
+
+.erasmus-card .erasmus-card-img-div::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, .4);
+    opacity: 0;
+    transition: opacity .4s;
+    border-radius: 4rem;
+}
+
+.erasmus-card .erasmus-card-square {
+    width: 20px;
+    height: 20px;
+    background-color: #93eb74;
+}
+
+.erasmus-card .erasmus-card-title {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.erasmus-card .erasmus-card-title h2 {
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+    text-align: center;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow-wrap: break-word;
+    transition: color .4s;
+}
+
+.erasmus-card .erasmus-card-paragraph {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+    text-align: center;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 12;
+    -webkit-box-orient: vertical;
+    overflow-wrap: break-word;
+    transition: color .4s;
+}
+
+.erasmus-card .eramus-card-more-info {
+    position: absolute;
+    bottom: 2rem;
+    left: 3rem;
+    transition: color .4s;
+}
+
+.erasmus-card .eramus-card-more-info div:first-child {
+    padding-left: 1rem;
+}
+
+.erasmus-card .eramus-card-more-info-bottom-line {
+    height: 1px;
+    width: 120%;
+    background-color: black;
+    transition: width .4s, background-color .1s;
+}
+
+.erasmus-card:hover .erasmus-card-img {
+    opacity: 1;
+}
+
+.erasmus-card:hover .erasmus-card-paragraph,
+.erasmus-card:hover .erasmus-card-title h2,
+.erasmus-card:hover .eramus-card-more-info {
+    color: white;
+}
+
+.erasmus-card:hover .erasmus-card-img-div::before {
+    opacity: 1;
+}
+
+.erasmus-card:hover .eramus-card-more-info-bottom-line {
+    background-color: white;
+    width: 200%;
+}
+
+footer {
+    background-color: #1d1d1d;
+}
+
+footer a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer .footer-menu {
+    margin-bottom: 1.5rem;
+}
+
+footer .footer-menu li {
+    margin-top: .5rem;
+}
+
+footer .footer-menu li a {
+    opacity: .7;
+    padding: 0 0.5rem;
+    transition: opacity .4s;
+}
+
+footer .footer-menu li:hover a {
+    opacity: 1;
+}
+
+footer .footer-menu li .footer-menu-a-bottom-line {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+}
+
+footer .footer-social li a {
+    transition: color .4s;
+}
+
+footer .footer-social li:hover a {
+    color: #928d8d !important;
+}
+
+footer .footer-social li a i {
+    font-size: 1.3rem;
+}
+
+footer .contact .d-flex div a svg {
+    width: 20px;
+    height: 20px;
+    margin-right: .5rem;
+}
+
+footer .contact .d-flex div:last-child a {
+    margin-left: .25rem;
+}
+
+footer .contact .d-flex div:first-child a svg {
+    transform: rotateZ(325deg);
+}
+
+footer .row .col-lg-4 .footer-content-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: .5rem;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+}
+
+footer form {
+    position: relative;
+}
+
+footer form div input {
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    padding: 0 1rem;
+}
+
+footer form div button {
+    position: absolute;
+    width: 70px;
+    height: 100%;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    background-color: #7cd25e;
+    color: white;
+    top: 0;
+    right: 0;
+}
+
+footer .footer-img img {
+    width: 22rem;
+    height: 13rem;
+    object-fit: cover;
+}
+
+footer hr {
+    color: white;
+    opacity: 1;
+}
+
+footer .footer-bottom a {
+    opacity: .7;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+}
+
+footer .row .col-lg-4.d-flex>div:first-child {
+    height: 150px;
+}
+
+footer .row .col-lg-4.d-flex>div:nth-child(2) {
+    height: 75px;
 }
 
 @media (max-width: 575.98px) {

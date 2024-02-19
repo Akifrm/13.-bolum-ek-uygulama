@@ -1,0 +1,15 @@
+.section-5-card {
+    border-radius: 2rem;
+    margin: 1rem;
+}
+
+.section-5-card:hover {
+    border-radius: 2rem;
+}
+
+.section-5-card-circle {
+    opacity: 1;
+    height: 50%;
+    border-radius: 3rem;
+    width: 110%;
+}

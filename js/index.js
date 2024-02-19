@@ -30,13 +30,8 @@ const paragraph = document.querySelector('.banner-paragraph');
 const left_arrow = document.querySelector('.left-arrow');
 const right_arrow = document.querySelector('.right-arrow');
 
-let button_id = 1;
-let first = true;
-
 const width = document.body.clientWidth - big_img.width;
 const height = 600 - small_img.height - text2.clientHeight - big_img.width / 5;
-
-text.style.transform = `translateX(0)`;
 
 text.style.width = width + "px";
 text.style.marginTop = height + "px";
@@ -44,19 +39,28 @@ text.style.marginTop = height + "px";
 window.addEventListener('resize', () => {
     const big_img = document.querySelector('.big-img');
     const small_img = document.querySelector('.small-img');
-
     const width = document.body.clientWidth - big_img.width;
-
-    text.style.transform = `translateX(0)`;
-    text.style.width = width + "px";
-
-    const width2 = document.body.clientWidth - big_img.width;
     const height = (600 - small_img.height - text2.clientHeight - big_img.width / 5) < 0 ? 0 : small_img.height - text2.clientHeight - big_img.width / 5;
 
-    text.style.width = width2 + "px";
+    text.style.width = width + "px";
     text.style.marginTop = height + "px";
-})
+});
 
+let animation = false;
+document.querySelector('.header-menu-button').onclick = function () {
+    if (animation) return;
+    this.classList.toggle('header-menu-button-animation');
+    setTimeout(() => {
+        document.querySelector('.menu').classList.toggle('active');
+    }, 1);
+
+    animation = true;
+    setTimeout(() => {
+        animation = false;
+    }, 400);
+}
+
+let button_id = 1, first = true;
 for (const btn of button) {
     btn.addEventListener('click', () => {
         if (button_id == Number(btn.getAttribute('data-button-id'))) return;
@@ -176,6 +180,27 @@ $('.slick-card').slick({
                 slidesToShow: 1,
                 slidesToScroll: 1,
                 centerMode: false
+            }
+        }
+    ]
+})
+
+$('.slick-erasmus').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: false,
+    dots: false,
+    responsive: [
+        {
+            breakpoint: 992,
+            settings: {
+                slidesToShow: 2
+            }
+        },
+        {
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 1
             }
         }
     ]

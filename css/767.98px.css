@@ -1,0 +1,9 @@
+.footer-row-first-child>div {
+    width: auto;
+    margin: .5rem 0;
+}
+
+.footer-row-last-child>div {
+    width: auto;
+    margin: .5rem 0;
+}

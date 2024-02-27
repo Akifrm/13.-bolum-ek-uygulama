@@ -13,3 +13,7 @@
     border-radius: 3rem;
     width: 110%;
 }
+
+header .menu ul {
+    padding-right: 5rem !important;
+}

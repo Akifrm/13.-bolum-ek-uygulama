@@ -43,20 +43,7 @@ footer .row .col-lg-4.d-flex>div:nth-child(2) {
     height: auto;
 }
 
-header .menu {
-    display: none;
-    position: absolute;
-    left: 0;
-    top: 158px;
-    transition: all .4s;
-}
-
-header .menu.active {
-    display: block;
-    left: 300px;
-}
-
-header .menu.active ul {
+header .menu ul {
     background-color: white;
     flex-direction: column;
     position: relative;
@@ -66,10 +53,48 @@ header .menu.active ul {
     padding-right: 8rem !important;
 }
 
-header .menu.active ul li {
+header .menu ul li {
     padding: 1rem 3rem;
+}
+
+header .menu {
+    position: absolute;
+    left: -400px;
+    top: 158px;
+    transition: all .4s;
+}
+
+header .menu.active {
+    left: 0;
 }
 
 header .header-menu-button {
     display: flex !important;
+}
+
+.myContainer {
+    max-width: 720px;
+}
+
+.myContainer .banner-title,
+.myContainer .banner-paragraph {
+    text-align: center;
+}
+
+.text {
+    width: 100% !important;
+    margin-top: 0 !important;
+}
+
+.text-move2,
+.text-move {
+    transform: translateX(0) !important;
+}
+
+.module-section-title span {
+    padding-right: 2rem;
+}
+
+.section-skills-parent-div>div:first-child {
+    margin-bottom: 3rem;
 }

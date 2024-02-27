@@ -7,3 +7,20 @@
     width: auto;
     margin: .5rem 0;
 }
+
+.myContainer {
+    max-width: 540px;
+}
+
+.index-category-courses {
+    gap: 3rem;
+}
+
+.index-category-courses-category {
+    max-width: 180px;
+    left: 1.5rem;
+}
+
+.index-category-courses-image-div:hover .index-category-courses-category {
+    max-width: 200px;
+}

@@ -30,20 +30,24 @@ const paragraph = document.querySelector('.banner-paragraph');
 const left_arrow = document.querySelector('.left-arrow');
 const right_arrow = document.querySelector('.right-arrow');
 
-const width = document.body.clientWidth - big_img.width;
-const height = 600 - small_img.height - text2.clientHeight - big_img.width / 5;
+if (big_img) {
+    const width = big_img?.width <= 600 ? document.body.clientWidth - big_img.width : null;
+    const height = big_img?.width <= 600 ? 600 - small_img.height - text2.clientHeight - big_img.width / 5 : null;
 
-text.style.width = width + "px";
-text.style.marginTop = height + "px";
+    text.style.width = width + "px";
+    text.style.marginTop = height + "px";
+}
 
 window.addEventListener('resize', () => {
     const big_img = document.querySelector('.big-img');
     const small_img = document.querySelector('.small-img');
-    const width = document.body.clientWidth - big_img.width;
-    const height = (600 - small_img.height - text2.clientHeight - big_img.width / 5) < 0 ? 0 : small_img.height - text2.clientHeight - big_img.width / 5;
+    if (big_img) {
+        const width = big_img.width <= 600 ? document.body.clientWidth - big_img.width : null;
+        const height = big_img.width <= 600 ? (600 - small_img.height - text2.clientHeight - big_img.width / 5) < 0 ? 0 : small_img.height - text2.clientHeight - big_img.width / 5 : null;
 
-    text.style.width = width + "px";
-    text.style.marginTop = height + "px";
+        text.style.width = width + "px";
+        text.style.marginTop = height + "px";
+    }
 });
 
 let animation = false;
@@ -131,19 +135,74 @@ for (const btn of button) {
     });
 };
 
-left_arrow.addEventListener('click', () => {
+const skills = document.querySelectorAll('.about-us-skill-main');
+
+for (const skill_div of skills) {
+    const skill_circles = [...skill_div.children].filter(x => x.classList.value.includes('about-us-skill-circle'));
+
+    let rateStringChilderen = skill_div.children[skill_div.children.length - 1].children[0];
+    let rateString = rateStringChilderen.innerText,
+        rate = Number(rateString);
+
+    let i = 0;
+    function textAnimation(i) {
+        if (i > rate) return;
+        rateStringChilderen.innerText = i;
+        setTimeout(() => textAnimation(++i), 25);
+    }
+    textAnimation(i);
+
+    const num = skill_circles.length * 10 * rate / 1000,
+        numbers = String(num).split('.'),
+        numberFlatsToPainted = Number(numbers.shift()),
+        littlePainted = numbers[0];
+
+    function skill_func(i = 0) {
+        if (i > Math.floor(num)) return;
+
+        numberFlatsToPainted > i
+            ? skill_circles[i].classList.add('skill-active')
+            : skill_circles[i].style.backgroundColor = `rgba(36, 58, 148, .${littlePainted})`;
+        setTimeout(() => skill_func(++i), 200);
+    }
+    let j = 0;
+    skill_func(j);
+}
+
+left_arrow?.addEventListener('click', () => {
     if (button_id == 1) {
         document.querySelector('[data-button-id="4"]').click();
         button_id = 4;
     } else document.querySelector(`[data-button-id="${button_id - 1}"]`).click();
 });
 
-right_arrow.addEventListener('click', () => {
+right_arrow?.addEventListener('click', () => {
     if (button_id == 4) {
         document.querySelector('[data-button-id="1"]').click();
         button_id = 1;
     } else document.querySelector(`[data-button-id="${button_id + 1}"]`).click();
 });
+
+const courses_page_right_search_bar_div = document.querySelector('.courses-page-right-search-bar-div');
+const courses_page_right_search_bar = document.querySelector('.courses-page-right-search-bar');
+courses_page_right_search_bar_div.onclick = function () {
+    courses_page_right_search_bar.value += "tEst"
+}
+
+const courses_page_right_checkbox_a = document.querySelectorAll('.courses-page-right-checkbox-a');
+
+for (const a of courses_page_right_checkbox_a) {
+    a.addEventListener('click', (e) => {
+        for (const b of document.querySelectorAll('.courses-page-right-checkbox-active-div')) {
+            b.classList.remove('courses-page-right-checkbox-active');
+        }
+        for (const { children } of a.children) {
+            for (const c of children) {
+                if (c.classList.value.includes('courses-page-right-checkbox-active-div')) c.classList.add('courses-page-right-checkbox-active');   
+            }
+        }
+    })
+}
 
 $('.slick').slick({
     infinite: true,
@@ -157,6 +216,26 @@ $('.slick').slick({
     pauseOnHover: false,
     cssEase: 'linear',
     useTransform: true,
+    responsive: [
+        {
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 4
+            }
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 3
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 2
+            }
+        }
+    ]
 })
 
 $('.slick-card').slick({
@@ -204,4 +283,9 @@ $('.slick-erasmus').slick({
             }
         }
     ]
+})
+
+$('.courses-page-slider').slick({
+    arrows: false,
+    dots: true
 })
